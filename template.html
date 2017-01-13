@@ -28,6 +28,13 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/original.js"></script>
+
     <script src="js/notify_timer.js"></script>
 
 
@@ -76,10 +83,20 @@
     </form>
     <div class="text-center">
       <button class="btn-primary"> Web Notification </button>
+      <button id="alert-test">alert</button>
     </div>
-    <h1 class="text-center">
+    <h2 class="text-center">
       <div id="timer"></div>
-    </h1>
+    </h2>
+    <script type="text/javascript">
+      $("#alert-test").click(function() {
+        alerttimer();
+      });
+      function alerttimer() {
+        alert("Hello World")
+        setTimeout("alerttimer()",3000);
+      }
+    </script>
     <!--
     <script>
     Notification.requestPermission()
@@ -121,13 +138,6 @@
         </div>
         <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
     </footer>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/original.js"></script>s
 
 </body>
 </html>

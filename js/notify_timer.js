@@ -63,11 +63,13 @@ window.addEventListener('load', function () {
   });
 });
 
+fn_timer();
 var now = new Date();
 var second = now.getSeconds();
-function fn_timer(){
+function fn_timer() {
   now = new Date();
   second = now.getSeconds();
-  document.getElementById("timer").innerHTML = second;
+  $('#timer').text(second + '秒');
+  // document.getElementById("timer").innerHTML = second;
   setTimeout("fn_timer()",1);
 }
