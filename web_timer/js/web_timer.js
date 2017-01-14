@@ -42,12 +42,19 @@ function notify_timer() {
 }
 
 function notify_message(){
-  var i = document.forms.timerinit_form.timerinit_val.value;
+  var i_min = document.forms.timerinit_form.timerinit_min.value;
+  var i_sec = document.forms.timerinit_form.timerinit_sec.value;
+  var i = Number(i_min)*60 + Number(i_sec);
+  var minInForm = document.forms.timerinit_form.timerinit_min;
+  var secInForm = document.forms.timerinit_form.timerinit_sec;
   // 一部のブラウザ (Firefox を含む) は一定の期間内に大量の通知を行うとブロックするため、interval を使用します。
   var interval = window.setInterval(function () {
-    document.getElementById("timecounter").innerHTML = i;
+    // document.getElementById("tiimerinit_val").innerHTML = i;
+    minInForm.value = Math.floor(i/60);
+    secInForm.value = i%60
     if (i-- == 0) {
       var n = new Notification("Timer Finish!!");
+      var bell = new Audio("sound/bell.mp3").play()
       window.clearInterval(interval);
       setTimeout(n.close.bind(n), 4000);
     }

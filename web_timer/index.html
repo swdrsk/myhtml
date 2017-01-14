@@ -83,9 +83,15 @@
     <!-- Services -->
     <div class="apps">
       <a onClick="notify_timer()"><i class="fa fa-bell fa-bell-large"></i></a>
-      <form class="input-group" id="timerinit_form">
-        <input type="text" class="form-control" id="timerinit_val" placeholder="30">
-        <span class="input-group-addon" id="basic-addon2">second</span>
+      <form class="form-inline" id="timerinit_form">
+        <div class="input-group">
+          <input type="text" class="form-control" id="timerinit_min" value=25>
+          <span class="input-group-addon" id="basic-addon2">min</span>
+        </div>
+        <div class="input-group">
+          <input type="text" class="form-control" id="timerinit_sec" value=0>
+          <span class="input-group-addon" id="basic-addon2">sec</span>
+        </div>
       </form>
       <div id="timecounter"></div>
     </div>
