@@ -47,16 +47,17 @@ function notify_message(){
   var i = Number(i_min)*60 + Number(i_sec);
   var minInForm = document.forms.timerinit_form.timerinit_min;
   var secInForm = document.forms.timerinit_form.timerinit_sec;
+  var bellsound = new Audio("sound/bell.mp3")
   // 一部のブラウザ (Firefox を含む) は一定の期間内に大量の通知を行うとブロックするため、interval を使用します。
   var interval = window.setInterval(function () {
     // document.getElementById("tiimerinit_val").innerHTML = i;
     minInForm.value = Math.floor(i/60);
     secInForm.value = i%60
     if (i-- == 0) {
-      var n = new Notification("Timer Finish!!");
-      var bell = new Audio("sound/bell.mp3").play()
+      var n = new Notification("Timer Finish!!",{icon:"../img/spbob.ico"});
+      bellsound.play()
       window.clearInterval(interval);
-      setTimeout(n.close.bind(n), 4000);
+      setTimeout(n.close.bind(n), 6000);
     }
   }, 1000);
 

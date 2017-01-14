@@ -1,21 +1,34 @@
+body {
+  /* background:url(../../img/school_room_filterd.jpg) no-repeat center center scroll; */
+  background:url(../../img/white_room_bg.jpg) no-repeat center center scroll;
+}
+
 .apps {
   text-align: center;
 }
 
 .fa-bell-large {
   font-size: 100px;
-  color: gold;
+  color: goldenrod;
+}
+
+.fa-bell-large:hover {
+  color: darkgoldenrod;
+  cursor: pointer;
+}
+
+.header_min{
+  /*color: #fff;*/
+}
+
+.container {
+  /* color: #fff; */
 }
 
 .input-group{
   width: 100px;
   margin:auto;
   padding-top: 20px;
-}
-
-.fa-bell-large:hover {
-  color: goldenrod;
-  cursor: pointer;
 }
 
 #timecounter{
