@@ -1,0 +1,24 @@
+.apps {
+  text-align: center;
+}
+
+.fa-bell-large {
+  font-size: 100px;
+  color: gold;
+}
+
+.input-group{
+  width: 150px;
+  margin:auto;
+  padding-top: 20px;
+}
+
+.fa-bell-large:hover {
+  color: goldenrod;
+  cursor: pointer;
+}
+
+#timecounter{
+  font-size: 30px;
+
+}

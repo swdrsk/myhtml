@@ -22,6 +22,14 @@
   padding-top: 10%;
 }
 
+.fa-gamebutton {
+  font-size: 75px;
+  color: white;
+}
+
+.fa-gamebutton:hover {
+  color: gray;
+}
 
 #mondai_finish {
   color: #bdbdbd;
