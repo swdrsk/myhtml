@@ -9,7 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Pmodoro Timer</title>
+    <title>
+      Pmodoro Timer
+    </title>
 
     <link rel="shortcut icon" href="../img/spbob.ico" />
     <link rel="icon" type="image/vnd.microsoft.icon" href="../img/spbob.ico">
@@ -74,26 +76,34 @@
     <!-- Header -->
     <header id="top" class="header_min">
         <div class="text-center">
-          <h3>
+          <h3><b>
             Pomodoro Timer
-          </h3>
+          </b></h3>
         </div>
     </header>
 
     <!-- Services -->
     <div class="apps">
       <a onClick="notify_timer()"><i class="fa fa-bell fa-bell-large"></i></a>
-      <form class="form-inline" id="timerinit_form">
+      <form class="form-inline" id="count_form">
+        <div onclick="countCansel()" id="reset-messages">
+          <span class="label label-danger reset-tooltip">Reset Timer</span>
+        </div>
         <div class="input-group">
-          <input type="text" class="form-control" id="timerinit_min" value=25>
+          <input type="text" class="form-control" id="count_min" value=25>
           <span class="input-group-addon" id="basic-addon2">min</span>
         </div>
         <div class="input-group">
-          <input type="text" class="form-control" id="timerinit_sec" value=0>
+          <input type="text" class="form-control" id="count_sec" value=0>
           <span class="input-group-addon" id="basic-addon2">sec</span>
         </div>
       </form>
-      <div id="timecounter"></div>
+      <div class="btn btn-group btn-justified">
+        <button class="btn btn-primary" onclick="setCountval(25)">Pomodoro</button>
+        <button class="btn btn-primary" onclick="setCountval(5)">Break (short)</button>
+        <button class="btn btn-primary" onclick="setCountval(15)">Break (long)</button>
+      </div>
+      <b><div id="countdisplay"></div></b>
     </div>
 
     <!-- Footer -->

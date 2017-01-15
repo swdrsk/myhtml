@@ -4,12 +4,16 @@ body {
 }
 
 .apps {
+  font-family: "Comic Sans MS";
   text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .fa-bell-large {
-  font-size: 100px;
+  font-size: 120px;
   color: goldenrod;
+  padding-bottom: 15px;
 }
 
 .fa-bell-large:hover {
@@ -18,7 +22,8 @@ body {
 }
 
 .header_min{
-  /*color: #fff;*/
+  font-family:"Comic Sans MS";
+  font-size:40px;
 }
 
 .container {
@@ -28,10 +33,18 @@ body {
 .input-group{
   width: 100px;
   margin:auto;
-  padding-top: 20px;
+  padding-top:5px;
 }
 
-#timecounter{
-  font-size: 30px;
+#countdisplay{
+  font-size:150px;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
 
+.label-danger{
+  background-color: darkred;
+}
+.label-danger:hover{
+  background-color: maroon;
+  cursor:pointer;
 }
