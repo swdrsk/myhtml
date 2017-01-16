@@ -23,7 +23,7 @@
 }
 
 .fa-gamebutton {
-  font-size: 75px;
+  font-size: 60px;
   color: white;
 }
 
@@ -41,4 +41,5 @@
 
 #gamemessage {
   color: #dc143c;
+  padding-top: 10px;
 }

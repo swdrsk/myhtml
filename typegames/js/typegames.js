@@ -89,6 +89,10 @@ function typeGame(evt) {
       }
     }
     else {
+      //これがないと最後の一文字が残ったままになる
+      document.getElementById("mondai_finish").innerHTML = mondai;
+      document.getElementById("mondai_left").innerHTML = "";
+
       //全文字入力していたら、終了時間を記録する
       typEnd = new Date();
 
