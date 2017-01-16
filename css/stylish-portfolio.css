@@ -163,13 +163,6 @@ hr.small {
     -o-background-size: cover;
 }
 
-.header_min{
-  position: relative;
-  background: lightstealblue;
-  width:100%;
-  height:50px;
-}
-
 /* About */
 
 .about {

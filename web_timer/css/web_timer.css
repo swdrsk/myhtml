@@ -6,7 +6,7 @@ body {
 .apps {
   font-family: "Comic Sans MS";
   text-align: center;
-  padding-top: 15px;
+  padding-top: 40px;
   padding-bottom: 15px;
 }
 
@@ -22,8 +22,11 @@ body {
 }
 
 .header_min{
+  text-align: center;
   font-family:"Comic Sans MS";
-  font-size:40px;
+  font-size:35px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
 }
 
 .container {
