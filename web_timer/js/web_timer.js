@@ -85,11 +85,9 @@ function countdownFunction(){
     }
     if (i_all-- === 0) {
       var n = new Notification("Timer Finish!!",{icon:"../img/spbob.ico"});
-      bellsound.play()
-      window.clearInterval(interval);
-      state="ready"
+      bellsound.play();
       setTimeout(n.close.bind(n), 6000);
-      document.title = "Pomodoro Timer"
+      countCansel();
     }
   }, 1000);
 };
@@ -99,6 +97,7 @@ function setCountval(minutes) {
   minInForm.value = minutes;
   var secInForm = document.forms.count_form.count_sec;
   secInForm.value = 0;
+  i_all = minutes*60;
   countDisplay("countdisplay")
 };
 
@@ -114,11 +113,9 @@ function countDisplay(id) {
 function countCansel(){
   window.clearInterval(interval);
   state="ready"
-  i_all = 0;
   setCountval(25);
   countDisplay("countdisplay");
-  document.title = "Pomodoro Timer"
+  document.title = "Pomodoro Timer";
+  faviconname = "img/bell-icon.gif";
+  $("link[rel*='icon']").attr("href", faviconname);
 };
-
-function setFavicon() {
-}
