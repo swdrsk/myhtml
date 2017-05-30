@@ -20,11 +20,13 @@
         <input type="file" id="files" name="files[]"/>
         <output id="list"></output>
       </div>
+      <!-- URLからロードする機能。バグあり。未完成。
       <div class="selectbutton">
         sgf file from URL:
         <input type="text" name="urlsgf" id="urlsgf">
         <button id="urlbtn">Load</button>
       </div>
+      -->
       <div class="selectbutton">
         <div id="loadedfile"></div>
       </div>
@@ -79,10 +81,9 @@
               alert('select sgf file');
               return;
           }
-          var player = new WGo.BasicPlayer(elem, {
-            sgfFile: fileData
-          });
-        })
+          console.log(fileData);
+          $.ajax({ url: fileData, success: function(data) { alert(data); } });
+          })
       });
 
     </script>
