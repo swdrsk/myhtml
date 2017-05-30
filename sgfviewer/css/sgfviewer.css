@@ -1,0 +1,10 @@
+.selectbutton{
+  text-align: center;
+  margin:10px;
+};
+.selectfield{
+};
+
+WGo.BasicPlayer.layouts.right = {
+    right: ["InfoBox", "Control", "CommentBox"]
+};
