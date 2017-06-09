@@ -1,0 +1,1 @@
+https://swdrsk.github.io/myhtml/sgfviewer/
