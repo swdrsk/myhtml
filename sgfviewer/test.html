@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>SGF Viewer</title>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="wgo/wgo.js"></script>
+    <script type="text/javascript" src="wgo/wgo.player.min.js"></script>
+    <link type="text/css" href="wgo/wgo.player.css" rel="stylesheet" />
+    <link type="text/css" href="css/sgfviewer.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Activating a player using javascript -->
+    <div class="selectfield">
+      <div class="selectbutton">
+        AlphaGO self play:
+        <select name="setSelectNumber" id="alphago" onchange="loadAlphaGO"></select>
+      </div>
+      <div class="selectbutton">
+        Original sgf file:
+        <input type="file" id="files" name="files[]"/>
+        <output id="list"></output>
+      </div>
+      <!-- URLからロードする機能。バグあり。未完成。
+      <div class="selectbutton">
+        sgf file from URL:
+        <input type="text" name="urlsgf" id="urlsgf">
+        <button id="urlbtn">Load</button>
+      </div>
+      -->
+      <div class="selectbutton">
+        <div id="loadedfile"></div>
+      </div>
+    </div>
+    <div id="player" style="width:400px"></div>
+    <div style="text-align:right">
+      <a href="./diffmove.html">DiffMove</a>
+    </div>
+    <script type="text/javascript">
+      var elem = document.getElementById("player");
+      var dispfilename = document.getElementById("loadedfile");
+      var player = new WGo.BasicPlayer(elem, {
+          sgfFile: "AlphaGO_SelfPlay/1.sgf",
+          enableWheel: true
+      });
+
+      $(function () {
+        var selectElement = document.getElementById("alphago");
+        for(var i = 1; i <= 50; i ++){
+          var filename = i + ".sgf";
+          var option = document.createElement("option");
+          option.value = filename;
+          option.innerText = filename;
+          selectElement.appendChild(option);
+          }
+        selectElement.onchange = function(){
+          var selectedItem = this.options[ this.selectedIndex ];
+          var player = new WGo.BasicPlayer(elem, {
+            sgfFile: "AlphaGO_SelfPlay/" + selectedItem.value
+          });
+          player.addEventListener("click", function(e){
+            console.log("hello");
+          });
+        }
+      });
+
+      function loadLocalSgf(e) {
+        var fileData = e.target.files[0];
+        if(!fileData.name.match('.sgf$')) {
+            alert('select sgf file');
+            return;
+        }
+        var reader = new FileReader();
+        reader.onload = function() {
+            var cols = reader.result.split('\n');
+            var player = new WGo.BasicPlayer(elem, {
+              sgf: cols.join('')
+            });
+        }
+        reader.readAsText(fileData);
+      }
+      document.getElementById('files').addEventListener('change', loadLocalSgf, false);
+
+      $(function () {
+        $('#urlbtn').click(function() {
+          var fileData = $('#urlsgf').val();
+          if(!fileData.match('.sgf$')) {
+              alert('select sgf file');
+              return;
+          }
+          console.log(fileData);
+          $.ajax({ url: fileData, success: function(data) { alert(data); } });
+          })
+      });
+      var getMousePos = function(e) {
+      	// new hopefully better translation of coordinates
+
+      	var x, y;
+
+      	x = e.layerX * this.pixelRatio;
+      	x -= this.left;
+      	x /= this.fieldWidth;
+      	x = Math.round(x);
+
+      	y = e.layerY * this.pixelRatio;
+      	y -= this.top;
+      	y /= this.fieldHeight;
+      	y = Math.round(y);
+
+      	return {
+      		x: x >= this.size ? -1 : x,
+      		y: y >= this.size ? -1 : y
+      	};
+      }
+
+    </script>
+  </body>
+</html>

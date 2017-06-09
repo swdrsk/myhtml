@@ -1150,15 +1150,28 @@ var drawField = function(x,y) {
 
 var getMousePos = function(e) {
 	// new hopefully better translation of coordinates
+	var element = this.element, offsetX = 0, offsetY = 0;
+
+	if (element.offsetParent) {
+		do {
+			offsetX += element.offsetLeft;
+			offsetY += element.offsetTop;
+		} while ((element = element.offsetParent));
+	}
+
+	var mx = e.pageX - offsetX;
+	var my = e.pageY - offsetY
 
 	var x, y;
 
-	x = e.layerX * this.pixelRatio;
+	//console.log(e.layerX.toString() + "," + e.layerY.toString());
+	x = mx * this.pixelRatio;
 	x -= this.left;
 	x /= this.fieldWidth;
 	x = Math.round(x);
 
-	y = e.layerY * this.pixelRatio;
+	//console.log(this.top);
+	y = my * this.pixelRatio;
 	y -= this.top;
 	y /= this.fieldHeight;
 	y = Math.round(y);
